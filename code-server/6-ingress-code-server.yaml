@@ -1,19 +1,19 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: jenkins-ingress
+  name: code-server
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx
   rules:
-    - host: "jenkins.cedot-lab.work"
+    - host: "code.cedot-lab.work"
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: "jenkins-svc"
+                name: "code-server"
                 port:
                   number: 8080
